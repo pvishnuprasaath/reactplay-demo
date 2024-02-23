@@ -10,3 +10,15 @@ test('renders Built by Copilot', () => {
   const linkElement = screen.getByText(/Built by Copilot/i);
   expect(linkElement).toBeInTheDocument();
 });
+
+// test case to type in the input field and check if the debounced value is displayed
+test('type in the input field and check if the debounced value is displayed', () => {
+  render(<App />);
+  const input = screen.getByPlaceholderText(
+    'Type something...',
+  ) as HTMLInputElement;
+  input.focus();
+  input.value = 'hello';
+  const debouncedValue = screen.getByText('Debounced value: hello');
+  expect(debouncedValue).toBeInTheDocument();
+});
