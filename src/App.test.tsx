@@ -1,7 +1,7 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { act, render, screen, waitFor } from '@testing-library/react';
-import App, { calculateDaysBetweenTwoDates } from './App';
+import App, { calculateDaysBetweenTwoDates, validateEmail } from './App';
 import '@testing-library/jest-dom';
 
 // test case to check iof the text Built by Copilot is present in the app
@@ -129,3 +129,20 @@ test('fetch returns a rejected promise', async () => {
     expect(screen.getByText(/ERROR:/i)).toBeInTheDocument();
   });
 });
+// ...
+
+// test case for validateEmail function with a valid email
+test('validateEmail with a valid email', () => {
+  const email = 'test@example.com';
+  const isValid = validateEmail(email);
+  expect(isValid).toBe(true);
+});
+
+// test case for validateEmail function with an invalid email
+test('validateEmail with an invalid email', () => {
+  const email = 'invalid_email';
+  const isValid = validateEmail(email);
+  expect(isValid).toBe(false);
+});
+
+// ...
