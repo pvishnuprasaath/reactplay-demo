@@ -11,6 +11,18 @@ import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import './markdown-editor.css';
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+// what if name is not present in user object. how to handle it
+const BreakableComponent = (user: { name?: string }) => {
+  const username = user.name ?? 'Unknown';
+
+  return (
+    <div>
+      <h1>{username}</h1>
+    </div>
+  );
+};
+
 const MarkdownEditor = () => {
   const [markdown, setMarkdown] = useState('type markdown here');
 
@@ -21,6 +33,7 @@ const MarkdownEditor = () => {
         onChange={(e) => setMarkdown(e.target.value)}
       ></textarea>
       <ReactMarkdown className="markdown-preview" children={markdown} />
+      {BreakableComponent({ name: 'Hinge Health' })}
     </div>
   );
 };
