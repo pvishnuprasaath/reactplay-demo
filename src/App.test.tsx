@@ -1,7 +1,11 @@
 import React from 'react';
 import '@testing-library/jest-dom';
 import { act, render, screen, waitFor } from '@testing-library/react';
-import App, { calculateDaysBetweenTwoDates, validateEmail } from './App';
+import App, {
+  calculateDaysBetweenTwoDates,
+  generateUniqueKey,
+  validateEmail,
+} from './App';
 import '@testing-library/jest-dom';
 
 // test case to check if the text Built by Copilot is present in the app
@@ -146,3 +150,26 @@ test('validateEmail with an invalid email', () => {
 });
 
 // ...
+// ...
+
+// test case for generateUniqueKey function with positive input
+test('generateUniqueKey with positive input', () => {
+  const index = 1;
+  const slug = 'example';
+  const expectedKey = '1-example';
+
+  const result = generateUniqueKey(index, slug);
+
+  expect(result).toBe(expectedKey);
+});
+
+// test case for generateUniqueKey function with negative input
+test('generateUniqueKey with negative input', () => {
+  const index = -1;
+  const slug = 'example';
+  const expectedKey = '-1-example';
+
+  const result = generateUniqueKey(index, slug);
+
+  expect(result).toBe(expectedKey);
+});
