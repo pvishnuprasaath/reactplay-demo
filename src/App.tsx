@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import reactLogo from './assets/react.svg';
 import './App.css';
 import { TextField } from '@mui/material';
+import MarkdownEditor from './markdown-editor';
 
 // function which renders the number of days between two dates
 // eslint-disable-next-line react-refresh/only-export-components
@@ -144,6 +145,7 @@ function App() {
         {renderPosts()}
         {error && <p>ERROR: {error}</p>}
       </div>
+      <MarkdownEditor />
     </>
   );
 }

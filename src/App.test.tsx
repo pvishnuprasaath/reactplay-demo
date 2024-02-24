@@ -4,7 +4,7 @@ import { act, render, screen, waitFor } from '@testing-library/react';
 import App, { calculateDaysBetweenTwoDates, validateEmail } from './App';
 import '@testing-library/jest-dom';
 
-// test case to check iof the text Built by Copilot is present in the app
+// test case to check if the text Built by Copilot is present in the app
 test('renders Built by Copilot', () => {
   render(<App />);
   const linkElement = screen.getByText(/Built by Copilot/i);
